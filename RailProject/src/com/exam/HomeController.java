@@ -41,7 +41,7 @@ public class HomeController {
 		  String uname =h.getUname();
 		  if(uname.equals(name))
 		  {
-			  return "success";
+			  return "Hrdisplay";
 		  }
 	   }
 	   catch(Exception e)
