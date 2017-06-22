@@ -34,8 +34,8 @@
       <li><a href="#">Page 3</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-       <li><a href="empreg.jsp"> <span class="glyphicon glyphicon-user"></span> Register</a></li>
-      <li><a href=""><span class="glyphicon glyphicon-user"></span>  Login</a></li>
+       <li><a href="<c:url value='/empreg'/>"> <span class="glyphicon glyphicon-user"></span> Register</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span>  Login</a></li>
     </ul>
   </div>
 </nav>

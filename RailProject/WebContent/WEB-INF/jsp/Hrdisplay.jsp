@@ -20,8 +20,7 @@
       <li><a href="#">Page 3</a></li>
     </ul>
   </div>
-</nav>
-  
+</nav> 
 
 </body>
 </html>
