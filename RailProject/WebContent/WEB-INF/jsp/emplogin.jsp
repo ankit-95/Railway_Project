@@ -7,18 +7,18 @@
 <head>
  <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>HR Login</title>
+<title>Employee Login</title>
     	<link href="${pageContext.request.contextPath}/resources/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="container" style="background-image: url('${pageContext.request.contextPath}/resources/background2.jpg');background-repeat: no-repeat;background-size: 100%;">
-        <form:form action="hrlogin" commandName="hruser" method="post" autocomplete="off">
+        <form:form action="emplogin" commandName="empuser" method="post" autocomplete="off">
          <div class="form-group" class="col-sm-6" style="margin-top:200px;margin-left:450px;margin-right:400px">
-                <label>Enter the Username : </label>
-            <form:input path="uname" cssClass="form-control" autocomplete="off"/>
+                <label>Enter the E-Mail : </label>
+            <form:input path="email" cssClass="form-control" autocomplete="off"/>
         </div>
         <div class="form-group" class="col-sm-6" style="margin-left:450px;margin-right:400px">
             <label>Enter the Password : </label>
-            <form:password path="pwd" cssClass="form-control" autocomplete="off"/>
+            <form:password path="password" cssClass="form-control" autocomplete="off"/>
         </div>
         <span>
             <button class="btn btn-info" class="col-sm-6" style="margin-left: 450px;" >Login</button>

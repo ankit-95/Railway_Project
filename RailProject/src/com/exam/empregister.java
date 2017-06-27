@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
+@NamedQuery(name="emp.find",query="select e.email from empregister e where e.email=:empemail and e.password=:emppassword")
 public class empregister {
 
 	@Id
@@ -23,12 +24,13 @@ public class empregister {
 	private String comment;
 	private String password;
 	private String confirmPassword;
+	private String empid;
 	
 	public empregister() {
 		super();
 	}
 	
-	public empregister(String email,String first_name,String last_name,String phone,String address,String city,String state,String comment,String password,String confirmPassword)
+	public empregister(String email,String first_name,String last_name,String phone,String address,String city,String state,String comment,String password,String confirmPassword,String empid)
 	{
 		super();
 		this.first_name = first_name;
@@ -40,8 +42,16 @@ public class empregister {
 		this.comment=comment;
 		this.password=password;
 		this.confirmPassword=confirmPassword;
+		this.empid=empid;
+		}
+	
+	public String getEmpid() {
+		return empid;
 	}
 	
+	public void setEmpid(String empid) {
+		this.empid = empid;
+	}
 	public String getAddress() {
 		return address;
 	}

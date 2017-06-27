@@ -89,35 +89,36 @@
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
             <form:select path="state" class="form-control selectpicker" >
               <form:option value=" " >Please select your state</form:option>
-              <form:option value=" ">Andhra Pradesh</form:option>
-              <form:option value=" ">Arunachal Pradesh</form:option>
-              <form:option value=" ">Assam</form:option>
-              <form:option value=" ">Bihar</form:option>
-              <form:option value=" ">Chhattisgarh</form:option>
-              <form:option value=" ">Goa</form:option>
-              <form:option value=" ">Gujarat</form:option>
-              <form:option value=" ">Haryana</form:option>
-              <form:option value=" ">Himachal Pradesh </form:option>
-              <form:option value=" "> Jammu and Kashmir</form:option>
-              <form:option value=" ">Jharkhand</form:option>
-              <form:option value=" ">Karnataka</form:option>
-              <form:option value=" ">Kerala</form:option>
-              <form:option value=" ">Madhya Pradesh</form:option>
-              <form:option value=" ">Maharashtra</form:option>
-              <form:option value=" ">Manipur</form:option>
-              <form:option value=" "> Meghalaya</form:option>
-              <form:option value=" ">Mizoram</form:option>
-              <form:option value=" ">Nagaland</form:option>
-              <form:option value=" ">Odisha</form:option>
-              <form:option value=" ">Punjab</form:option>
-              <form:option value=" "> Rajasthan</form:option>
-              <form:option value=" ">Sikkim</form:option>
-              <form:option value=" ">Tamil Nadu</form:option>
-              <form:option value=" ">Telangana</form:option>
-              <form:option value=" ">Tripura</form:option>
-              <form:option value=" ">Uttarakhand </form:option>
-              <form:option value=" ">Uttar Pradesh</form:option>
-              <form:option value=" ">West Bengal</form:option>
+              <form:option value="Andhra Pradesh">Andhra Pradesh</form:option>
+              <form:option value="Arunachal Pradesh">Arunachal Pradesh</form:option>
+              <form:option value="Assam">Assam</form:option>
+              <form:option value="Bihar ">Bihar</form:option>
+              <form:option value=" Chhattisgarh">Chhattisgarh</form:option>
+              <form:option value="Delhi ">Delhi</form:option>
+              <form:option value=" Goa">Goa</form:option>
+              <form:option value="Gujarat ">Gujarat</form:option>
+              <form:option value=" Haryana">Haryana</form:option>
+              <form:option value="Himachal Pradesh ">Himachal Pradesh </form:option>
+              <form:option value="Jammu and Kashmir "> Jammu and Kashmir</form:option>
+              <form:option value="Jharkhand ">Jharkhand</form:option>
+              <form:option value=" Karnataka">Karnataka</form:option>
+              <form:option value=" Kerala">Kerala</form:option>
+              <form:option value=" Madhya Pradesh">Madhya Pradesh</form:option>
+              <form:option value="Maharashtra ">Maharashtra</form:option>
+              <form:option value=" Manipur">Manipur</form:option>
+              <form:option value="Meghalaya "> Meghalaya</form:option>
+              <form:option value=" Mizoram">Mizoram</form:option>
+              <form:option value="Nagaland ">Nagaland</form:option>
+              <form:option value="Odisha ">Odisha</form:option>
+              <form:option value=" Punjab">Punjab</form:option>
+              <form:option value="Rajasthan "> Rajasthan</form:option>
+              <form:option value="Sikkim ">Sikkim</form:option>
+              <form:option value="Tamil Nadu ">Tamil Nadu</form:option>
+              <form:option value=" Telangana">Telangana</form:option>
+              <form:option value="Tripura ">Tripura</form:option>
+              <form:option value=" Uttarakhand">Uttarakhand </form:option>
+              <form:option value="Uttar Pradesh ">Uttar Pradesh</form:option>
+              <form:option value=" West Bengal">West Bengal</form:option>
              </form:select>
           </div>
         </div>
@@ -299,15 +300,14 @@
 
                 }
             },
-    /*state: {
+    state: {
                validators: {
                     notEmpty: {
                         message: 'Please select your state'
                     }
                 }
             },
-   
-       */   
+      
     comment: {
                 validators: {
                       stringLength: {
@@ -318,10 +318,6 @@
                     notEmpty: {
                         message: 'Please supply a description about yourself'
                       },
-                      regexp: {
-                        regexp: /^[a-zA-Z]+$/,
-                        message: 'Please enter alphabetical letters onlys'
-                    }
                     }
                  }, 
    email: {

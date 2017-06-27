@@ -12,7 +12,7 @@
 
 <body style="background-image: url('${pageContext.request.contextPath}/resources/background2.jpg');background-repeat: no-repeat;background-size: 100%;">
           <div class="jumbotron text-center">
-  <h4>You have registered successfully....Click here to go on <a href="<c:url value='/emplogin'/>" >Login Page.</a> </h4>
+  <h4>Performance Added successfully....Click here to go on <a href="index.jsp" >Home Page.</a> </h4>
 </div>
 </body>
 </html>
