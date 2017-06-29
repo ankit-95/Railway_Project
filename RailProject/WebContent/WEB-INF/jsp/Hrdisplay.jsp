@@ -21,7 +21,7 @@
     </ul>
   </div>
 </nav> 
-        
+   <div class="form-horizontal">     
         <form:form action="empdisp" method="get">
         <span>
             <button class="btn btn-info" class="col-sm-6" style="margin-left: 100px;" >Employee</button>
@@ -32,7 +32,7 @@
             <button class="btn btn-info" class="col-sm-6" style="margin-left: 100px;" >Enter Employee Performance</button>
         </span> 
    </form:form> 
-   
+   </div>
    <br>
    <br>
    

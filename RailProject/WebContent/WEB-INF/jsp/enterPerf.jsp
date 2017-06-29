@@ -20,14 +20,14 @@
 <div class="col-lg-9">
 <form:form class="form-vertical" action="perfEmp" commandName="empperf" method="post" autocomplete="off">
  <%
-List<String> list1 = (List<String>)request.getAttribute("empid");
+List<Integer> list1 = (List<Integer>)request.getAttribute("empid");
  %>
  <div class="form-group">
         <label style="color:#b366ff;" class="col-md-4 control-label">Employee Id :</label>
 		<div class="col-md-6 selectContainer">
 		<form:select path="empid" class="form-control selectpicker">
 	<%
-    for(String list:list1)  
+    for(Integer list:list1)  
 	{ %>
 	<form:option value="<%=list%>"><%=list%></form:option>
 		<% } 

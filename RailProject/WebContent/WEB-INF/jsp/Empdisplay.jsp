@@ -21,10 +21,11 @@
      </ul>
   </div>
 </nav> 
-      <form:form action="empperf" method="get">
+      <form:form action="empperf" commandName="empuser" method="get">
+        <form:hidden path="email" value="${email}" />
         <span>
               <button class="btn btn-info" class="col-sm-6" style="margin-left: 100px;" >Get Performance Report</button>
         </span> 
    </form:form> 
-</body>
+  </body>
 </html>

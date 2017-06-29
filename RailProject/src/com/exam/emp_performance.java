@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table
 public class emp_performance {
 	
-	private String empid;
+	private Integer empid;
 	private String per_year;
 	private String sales;
 	
@@ -21,17 +21,16 @@ public class emp_performance {
 		super();
 	}
 	
-	public emp_performance(String empid,String per_year,String sales) {
+	public emp_performance(Integer empid,String per_year,String sales) {
 		
 		this.empid = empid;
 		this.per_year=per_year;
 		this.sales = sales;
 	}
 	
-	public void setEmpid(String empid) {
-		this.empid = empid;
-	}
-	
+public void setEmpid(Integer empid) {
+	this.empid = empid;
+}	
 	public void setPer_year(String per_year) {
 		this.per_year = per_year;
 	}  
@@ -40,10 +39,9 @@ public class emp_performance {
 		this.sales = sales;
 	}
 	
-	public String getEmpid() {
-		return empid;
-	}
-	
+public Integer getEmpid() {
+	return empid;
+}	
 	public String getPer_year() {
 		return per_year;
 	}

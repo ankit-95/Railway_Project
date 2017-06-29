@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -90,7 +91,7 @@ public class HomeController {
    @RequestMapping(value="/empreg",method=RequestMethod.POST)
    public String insertEmp(@ModelAttribute("empuser") empregister empuser,HttpServletRequest req) 
    {
-	   String uniqueID = UUID.randomUUID().toString();
+	   UUID uniqueID = UUID.randomUUID();
 	   EntityManagerFactory emf=Persistence.createEntityManagerFactory("RailProject");
 	   EntityManager em=emf.createEntityManager();
 	   em.getTransaction().begin();
@@ -106,7 +107,7 @@ public class HomeController {
 	   query.setParameter(8, empuser.getComment());
 	   query.setParameter(9, empuser.getPassword());
 	   query.setParameter(10, empuser.getConfirmPassword());
-	   query.setParameter(11,uniqueID); 
+	   query.setParameter(11,uniqueID.hashCode()); 
 	   query.executeUpdate();
 	   em.getTransaction().commit();
 	   em.close();
@@ -134,6 +135,7 @@ public class HomeController {
 		  System.out.println(email);
 		  if(email.equals(empemail))
 		  {
+			  req.setAttribute("email", empuser.getEmail());
 			  return "Empdisplay";
 		  }
 	   }
@@ -159,26 +161,35 @@ public class HomeController {
    
 
    @RequestMapping(value="/empperf",method=RequestMethod.GET)
-   public String empPerformance(HttpServletRequest req,HttpServletResponse res) throws IOException, SQLException, ClassNotFoundException
+   public String empPerformance(@ModelAttribute("empuser") empregister empuser,HttpServletRequest req,HttpServletResponse res) throws IOException, SQLException, ClassNotFoundException
    {
+	   String email=empuser.getEmail();
 	   OutputStream out = res.getOutputStream();
 	   res.setContentType("image/png");
+	   
 	   Class.forName("com.mysql.jdbc.Driver");
 	   Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ankit","root","1234");
-	   Statement statement = connection.createStatement();
-	   ResultSet resultset=statement.executeQuery("select * from emp_performance");
+	   Statement smt = connection.createStatement();
+	   ResultSet rst = smt.executeQuery("select empid from empregister where email='"+email+"';");
+	   rst.next();
+	   String empid = rst.getString(1);
+	   
+	   Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ankit","root","1234");
+		  
+	   Statement statement = conn.createStatement();
+	   ResultSet resultset=statement.executeQuery("select * from emp_performance where empid ="+empid+";");
 	   DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 	   final NumberAxis rangeAxis = new NumberAxis("Y-Axis");
 	   rangeAxis.setRange(2000,3000);
 	   rangeAxis.setTickUnit(new NumberTickUnit(50));
-
 	   while(resultset.next())
 	   {
+		   Integer empid1 = resultset.getInt(1);
 	   String per_year=resultset.getString(2);
 	   String sales = resultset.getString(3);
 	   dataset.setValue(Integer.parseInt(per_year),per_year,sales);
 	   }
-	   JFreeChart chart = ChartFactory.createBarChart("Employee Performance", "Sales", "Perfromance Year", dataset, PlotOrientation.VERTICAL, false, true, false);
+	   JFreeChart chart = ChartFactory.createBarChart("Employee Performance", "Performance Year", "Sales", dataset, PlotOrientation.VERTICAL, false, true, false);
 	   int width=560;
 	   int height=370;
 	   ChartUtilities.writeChartAsPNG(out, chart, width, height); 

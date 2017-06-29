@@ -10,8 +10,13 @@
 	<link href="${pageContext.request.contextPath}/resources/bootstrap.min.css" rel="stylesheet" type="text/css" />
     	<link href="${pageContext.request.contextPath}/resources/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
     	<link href="${pageContext.request.contextPath}/resources/style.css" rel="stylesheet" type="text/css" />
-    
-</head>
+   <style type="text/css">
+   body{
+   background: bisque !important;
+   }
+   </style>
+   
+   </head>
 <body>
 <div class="container">
 <div class="col-lg-9">
@@ -280,7 +285,7 @@
                         message: 'Please supply your street address'
                     },
                      regexp: {
-                        regexp: /^[a-zA-Z0-9-\,\/]+$/,
+                        regexp: /^[a-zA-Z0-9- \,\/]+$/,
                         message: 'The address can only consist of alphabetical, number, dot, comma and frontslash'
                     }
                 }
@@ -318,7 +323,11 @@
                     notEmpty: {
                         message: 'Please supply a description about yourself'
                       },
-                    }
+                      regexp: {
+                          regexp: /^[a-zA-Z0-9 ]+$/,
+                          message: 'The city can only consist of alphabetical'
+                      }    
+                }
                  }, 
    email: {
                 validators: {
