@@ -107,7 +107,12 @@ public class HomeController {
 	   query.setParameter(8, empuser.getComment());
 	   query.setParameter(9, empuser.getPassword());
 	   query.setParameter(10, empuser.getConfirmPassword());
-	   query.setParameter(11,uniqueID.hashCode()); 
+	   if(uniqueID.hashCode()<0)
+	   {
+	   query.setParameter(11,-(uniqueID.hashCode())); 
+	   }
+	   else
+		   query.setParameter(11,uniqueID.hashCode());    
 	   query.executeUpdate();
 	   em.getTransaction().commit();
 	   em.close();
@@ -177,19 +182,18 @@ public class HomeController {
 	   Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/ankit","root","1234");
 		  
 	   Statement statement = conn.createStatement();
-	   ResultSet resultset=statement.executeQuery("select * from emp_performance where empid ="+empid+";");
+	   ResultSet resultset=statement.executeQuery("select * from emp_performance where empid ="+empid+" order by per_year;");
 	   DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 	   final NumberAxis rangeAxis = new NumberAxis("Y-Axis");
 	   rangeAxis.setRange(2000,3000);
 	   rangeAxis.setTickUnit(new NumberTickUnit(50));
 	   while(resultset.next())
 	   {
-		   Integer empid1 = resultset.getInt(1);
-	   String per_year=resultset.getString(2);
-	   String sales = resultset.getString(3);
-	   dataset.setValue(Integer.parseInt(per_year),per_year,sales);
+	   String per_year=resultset.getString("PER_YEAR");
+	   String sales = resultset.getString("SALES");
+	   dataset.setValue(Double.parseDouble(sales),per_year,per_year);
 	   }
-	   JFreeChart chart = ChartFactory.createBarChart("Employee Performance", "Performance Year", "Sales", dataset, PlotOrientation.VERTICAL, false, true, false);
+	   JFreeChart chart = ChartFactory.createBarChart3D("Employee Performance : "+empid, "Performance Year", "Sales", dataset, PlotOrientation.VERTICAL, false, true, false);
 	   int width=560;
 	   int height=370;
 	   ChartUtilities.writeChartAsPNG(out, chart, width, height); 
