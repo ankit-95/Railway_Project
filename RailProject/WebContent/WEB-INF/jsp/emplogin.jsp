@@ -12,11 +12,11 @@
 </head>
 <body class="container" style="background-image: url('${pageContext.request.contextPath}/resources/background2.jpg');background-repeat: no-repeat;background-size: 100%;">
         <form:form action="emplogin" commandName="empuser" method="post" autocomplete="off">
-         <div class="form-group" class="col-sm-6" style="margin-top:200px;margin-left:450px;margin-right:400px">
+         <div class="well" style="margin-left:450px;width:300px;height:100px;margin-top:200px;" class="form-group" class="col-sm-6" style="margin-top:200px;margin-left:450px;margin-right:400px">
                 <label>Enter the E-Mail : </label>
             <form:input path="email" cssClass="form-control" autocomplete="off"/>
         </div>
-        <div class="form-group" class="col-sm-6" style="margin-left:450px;margin-right:400px">
+        <div class="well" style="margin-left:450px;width:300px;height:100px;margin-top:-20px;" class="form-group" class="col-sm-6" style="margin-left:450px;margin-right:400px">
             <label>Enter the Password : </label>
             <form:password path="password" cssClass="form-control" autocomplete="off"/>
         </div>

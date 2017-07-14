@@ -10,14 +10,12 @@
 	<link href="${pageContext.request.contextPath}/resources/bootstrap.min.css" rel="stylesheet" type="text/css" />
     	<link href="${pageContext.request.contextPath}/resources/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
     	<link href="${pageContext.request.contextPath}/resources/style.css" rel="stylesheet" type="text/css" />
-   <style type="text/css">
-   body{
-   background: bisque !important;
-   }
-   </style>
-   
-   </head>
-<body>
+
+<style type="text/css">
+body { background: bisque !important; }
+</style>   
+  </head>
+<body >
 <div class="container">
 <div class="col-lg-9">
           <br>
@@ -42,7 +40,7 @@
       
       <!-- Text input-->
       
-      <div class="form-group">
+      <div  class="form-group">
         <label class="col-md-4 control-label" >Last Name</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -54,7 +52,7 @@
     
       <!-- Text input-->
       
-      <div class="form-group">
+      <div  class="form-group">
         <label class="col-md-4 control-label">Phone #</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
@@ -66,7 +64,7 @@
       
       <!-- Text input-->
       
-      <div class="form-group">
+      <div  class="form-group">
         <label class="col-md-4 control-label">Address</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
@@ -77,7 +75,7 @@
       
       <!-- Text input-->
       
-      <div class="form-group">
+      <div  class="form-group">
         <label class="col-md-4 control-label">City</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
@@ -88,7 +86,7 @@
       
       <!-- Select Basic -->
       
-      <div class="form-group">
+      <div  class="form-group">
         <label class="col-md-4 control-label">State</label>
         <div class="col-md-6 selectContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
@@ -131,7 +129,7 @@
         
         <!-- Text area -->
       
-      <div class="form-group">
+      <div  class="form-group">
         <label class="col-md-4 control-label">About </label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
@@ -144,7 +142,7 @@
         <legend> Account information </legend>
         <fieldset>
         <!-- Text input-->
-      <div class="form-group">
+      <div  class="form-group">
         <label class="col-md-4 control-label">E-Mail</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
@@ -154,7 +152,7 @@
       </div>
       
     
-        <div class="form-group has-feedback">
+        <div  class="form-group has-feedback">
             <label for="password"  class="col-md-4 control-label">
                     Password
                 </label>
@@ -169,7 +167,7 @@
              </div>
         </div>
      
-        <div class="form-group has-feedback">
+        <div  class="form-group has-feedback">
             <label for="confirmPassword"  class="col-md-4 control-label">
                    Confirm Password
                 </label>
@@ -184,7 +182,7 @@
              </div>
         </div>
 
-        <div class="form-group">
+        <div style="margin-top: -50px;" class="form-group">
         <div class="col-xs-6 col-xs-offset-3">
             <div class="checkbox">
                 <label>

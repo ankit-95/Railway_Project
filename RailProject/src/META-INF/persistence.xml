@@ -4,6 +4,7 @@
   <class>com.exam.hrmodule</class>
   <class>com.exam.empregister</class>
   <class>com.exam.emp_performance</class>
+  <class>com.exam.emp_project</class>
       <properties>
          <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ankit"/>
          <property name="javax.persistence.jdbc.user" value="root"/>

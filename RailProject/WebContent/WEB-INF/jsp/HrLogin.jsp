@@ -12,11 +12,11 @@
 </head>
 <body class="container" style="background-image: url('${pageContext.request.contextPath}/resources/background2.jpg');background-repeat: no-repeat;background-size: 100%;">
         <form:form action="hrlogin" commandName="hruser" method="post" autocomplete="off">
-         <div class="form-group" class="col-sm-6" style="margin-top:200px;margin-left:450px;margin-right:400px">
+         <div class="well" style="margin-left: 450px;width:300px;height:100px;margin-top:200px;" class="form-group" class="col-sm-6" style="margin-top:200px;margin-left:450px;margin-right:400px">
                 <label>Enter the Username : </label>
             <form:input path="uname" cssClass="form-control" autocomplete="off"/>
         </div>
-        <div class="form-group" class="col-sm-6" style="margin-left:450px;margin-right:400px">
+        <div class="well" style="margin-left:450px;width:300px;height:100px;margin-top:-20px;" class="form-group" class="col-sm-6" style="margin-left:450px;margin-right:400px">
             <label>Enter the Password : </label>
             <form:password path="pwd" cssClass="form-control" autocomplete="off"/>
         </div>

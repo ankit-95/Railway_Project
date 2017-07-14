@@ -8,7 +8,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.UUID;
 
 import javax.persistence.EntityManager;
@@ -236,4 +240,103 @@ public class HomeController {
 	   emf.close();
 	   return "SucPerf";
    }
+   
+   @RequestMapping(value="/existproj",method=RequestMethod.GET)
+   String existProject(Model map,HttpServletRequest req)
+   {   
+	   EntityManagerFactory emf=Persistence.createEntityManagerFactory("RailProject");
+	    EntityManager em=emf.createEntityManager();
+	    em.getTransaction().begin();
+	    List<emp_project> list = em.createQuery("Select e from emp_project as e").getResultList();
+	    map.addAttribute("empproj", list);
+	    em.getTransaction().commit();
+	    req.setAttribute("msg", "EmployeeProject");
+	   	   return "Hrdisplay"; 
+   }
+   
+   @RequestMapping(value="/addproj",method=RequestMethod.GET)
+   String addProject(HttpServletRequest req)
+   {
+	   EntityManagerFactory emf=Persistence.createEntityManagerFactory("RailProject");
+	   EntityManager em=emf.createEntityManager();
+	   em.getTransaction().begin();
+	   List<String> list1 = em.createQuery("Select emp.empid from emp_project emp").getResultList();	
+	   List<empregister> list = em.createQuery("Select e from empregister as e").getResultList();
+	   String sm[]=null;
+	   List<empregister> list3=new ArrayList<empregister>();
+	   if(list1.isEmpty())
+	   {
+		   req.setAttribute("empname", list);
+	   }
+	   else
+	   {
+	   for(String s:list1)
+	   {
+		   sm =s.split(",");
+	   }
+	   int i=0;
+	   for(empregister e:list)
+	   {
+		   if(Integer.parseInt(sm[i])==(e.getEmpid()))
+		   {
+			  continue;
+		   }
+		   else
+		   {
+			   list3.add(e);
+				
+					   }
+	   }
+	   
+	    req.setAttribute("empname", list3);
+	   }
+	    em.getTransaction().commit();
+	   return "addProject"; 
+   }
+   
+   @ModelAttribute(value = "empproj")
+   public emp_project getemproj()
+   {
+       return  new emp_project();
+   }
+   
+   @RequestMapping(value="/addproj",method=RequestMethod.POST)
+   String addProjectDB(@ModelAttribute("empproj") emp_project empproj,HttpServletRequest req)
+   {
+	   EntityManagerFactory emf=Persistence.createEntityManagerFactory("RailProject");
+	   EntityManager em=emf.createEntityManager();
+	   em.getTransaction().begin();
+	   Query query = em.createNativeQuery("INSERT INTO emp_project (EMPID,PROJ_NAME,PROJ_BUDGET,NO_OF_EMP) " +"VALUES (?,?,?,?)");
+	   query.setParameter(1, empproj.getEmpid());
+	   query.setParameter(2, empproj.getProj_name());
+	   query.setParameter(3, empproj.getProj_budget());
+	   query.setParameter(4, empproj.getNo_of_emp());
+	   query.executeUpdate();
+	   em.getTransaction().commit();
+	   em.close();
+	   emf.close();
+	 return "projsuccess";
+}
+   @RequestMapping(value="/empleave",method=RequestMethod.GET)
+   String getEmpLeave()
+   {
+   return "empLeave";
+   }
+   
+   @ModelAttribute(value = "empselect")
+   public empSelect selectEmp()
+   {
+       return  new empSelect();
+   }
+
+   @RequestMapping(value="/empselect",method=RequestMethod.GET)
+   String empSelect(@ModelAttribute("empselect") empSelect empselect,HttpServletRequest req)
+   {
+	   	    req.setAttribute("emp", empselect);
+	    
+	   return "projsuccess"; 
+   }
+
+   
+     
 }

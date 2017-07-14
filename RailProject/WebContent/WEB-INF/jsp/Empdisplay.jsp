@@ -21,11 +21,23 @@
      </ul>
   </div>
 </nav> 
+ <div class="row">
+   <div class="col-sm-2">     
       <form:form action="empperf" commandName="empuser" method="get">
         <form:hidden path="email" value="${email}" />
         <span>
               <button class="btn btn-info" class="col-sm-6" style="margin-left: 100px;" >Get Performance Report</button>
         </span> 
    </form:form> 
+   </div>
+   <div class="col-sm-2">
+       <form:form action="empleave" method="get">
+        <span>
+              <button class="btn btn-info" class="col-sm-6" style="margin-left: 100px;" >Take Leave</button>
+        </span> 
+   </form:form> 
+       
+  </div>
+  </div> 
   </body>
 </html>
